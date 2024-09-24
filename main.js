@@ -39,12 +39,12 @@ function showProducts(productos) {
      
     productos.forEach(product => {
         //Manipulacion de DOM
-        const divP = document.createElement("div")
+        const divP = document.createElement("div");
         divP.classList.add("patito");
         divP.innerHTML = `<h3>${product.nombre}</h3> <p>${product.descripcion}</p> <p>${product.precio}</p> 
-        <button>comprar</button>
-    `
-        productContainer.appendChild(divP)
+        <button>comprar</button>`;
+        productContainer.appendChild(divP);
+        
     });
      
 
@@ -57,7 +57,32 @@ function showProducts(productos) {
 document.getElementById('search').addEventListener('input', function(){
     const searchedName = this.value;
     const filterP = searchProductByName(productos, searchedName);
+
     showProducts(filterP);
+
+    //funcion de producto no hallado
+
+
+    document.getElementById('search').addEventListener('input', function (){
+        const searchedName = this.value;
+        if(searchedName.includes(fiterP)){
+
+        }
+        else{
+            document.getElementById("search").innerHTML = "";
+            const P = document.createElement("p");
+            P.innerHTML = "no se encontro el producto";
+            productContainer.appendChild(P);
+        }
+        
+        
+    })
+
+
 })
+
+
+
+
 
 
