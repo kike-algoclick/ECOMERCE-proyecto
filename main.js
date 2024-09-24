@@ -35,6 +35,14 @@ function showProducts(productos) {
     const productContainer = document.getElementById('productContainer');
     productContainer.innerHTML = '';
 
+    if (productos.length === 0) {
+      const noProduct = document.createElement("p");
+      noProduct.textContent = "No se encontró el producto.";
+      productContainer.appendChild(noProduct);
+      ;
+    }
+
+
    
      
     productos.forEach(product => {
@@ -60,26 +68,11 @@ document.getElementById('search').addEventListener('input', function(){
 
     showProducts(filterP);
 
-    //funcion de producto no hallado
 
-
-    document.getElementById('search').addEventListener('input', function (){
-        const searchedName = this.value;
-        if(searchedName.includes(fiterP)){
-
-        }
-        else{
-            document.getElementById("search").innerHTML = "";
-            const P = document.createElement("p");
-            P.innerHTML = "no se encontro el producto";
-            productContainer.appendChild(P);
-        }
-        
-        
-    })
 
 
 })
+
 
 
 
